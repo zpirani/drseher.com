@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Join the Community — Thriving Mama · Dr. Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Hero */
+  .join-hero {
+    background: var(--cocoa); color: #fff;
+    padding: 90px 0 120px; text-align: center;
+  }
+  .join-hero .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7); margin-bottom: 20px;
+  }
+  .join-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(42px, 5.5vw, 66px);
+    line-height: 1.05; margin-bottom: 22px;
+  }
+  .join-hero h1 em { font-style: italic; color: var(--dustyrose); }
+  .join-hero p {
+    max-width: 54ch; margin: 0 auto 36px;
+    color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.7;
+  }
+  .join-hero .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* Pricing cards */
+  .pricing-wrap {
+    margin-top: -60px; position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 760px) { .pricing-wrap { grid-template-columns: 1fr; margin-top: -40px; } }
+
+  .pricing-card {
+    background: #fff; padding: 44px;
+    border: 1px solid rgba(143,116,98,0.12);
+    box-shadow: 0 30px 60px -40px rgba(31,31,31,0.15);
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .pricing-card.featured { border-color: var(--cocoa); border-width: 2px; }
+  .pricing-pill {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--cocoa); color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 6px 18px; white-space: nowrap;
+  }
+  .pricing-card .plan-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+  }
+  .pricing-card .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 500; line-height: 1; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .pricing-card .price span { font-size: 20px; vertical-align: super; }
+  .pricing-card .cadence { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+  .pricing-card .divider { height: 1px; background: var(--rule); margin-bottom: 28px; }
+  .pricing-card ul { list-style: none; display: grid; gap: 14px; margin-bottom: 36px; flex: 1; }
+  .pricing-card ul li {
+    position: relative; padding-left: 26px;
+    font-size: 14px; line-height: 1.5; color: var(--ink);
+  }
+  .pricing-card ul li::before {
+    content: "✓"; position: absolute; left: 0;
+    color: var(--cocoa); font-weight: 700;
+  }
+  .pricing-card ul li.muted { color: var(--muted); }
+  .pricing-card ul li.muted::before { content: "–"; color: var(--muted); font-weight: 400; }
+  .pricing-card .btn { align-self: stretch; justify-content: center; }
+  .pricing-card .note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.06em; color: var(--muted);
+    margin-top: 12px; text-align: center;
+  }
+
+  /* What's included */
+  .included { padding: 90px 0; background: var(--bg-soft); }
+  .included h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 44px); font-weight: 500; text-align: center; margin-bottom: 14px;
+  }
+  .included h2 em { font-style: italic; color: var(--cocoa); }
+  .included .sub { text-align: center; color: var(--muted); max-width: 52ch; margin: 0 auto 60px; font-size: 14px; }
+  .included-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+  @media (max-width: 900px) { .included-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 580px) { .included-grid { grid-template-columns: 1fr; } }
+  .inc-card {
+    background: #fff; padding: 32px 28px;
+    border: 1px solid var(--rule);
+  }
+  .inc-card .ichip { margin-bottom: 18px; background: var(--porcelain); }
+  .inc-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500; margin-bottom: 8px;
+  }
+  .inc-card p { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+
+  /* Testimonials */
+  .testimonials { padding: 90px 0; }
+  .testimonials h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 42px); font-weight: 500; text-align: center; margin-bottom: 50px;
+  }
+  .testimonials h2 em { font-style: italic; color: var(--cocoa); }
+  .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .t-grid { grid-template-columns: 1fr; } }
+  .t-card {
+    background: #fff; padding: 32px;
+    border: 1px solid var(--rule);
+  }
+  .t-card .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic; line-height: 1.6;
+    color: var(--ink); margin-bottom: 20px;
+  }
+  .t-card .author {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* FAQ */
+  .faq { padding: 90px 0; background: var(--bg-soft); }
+  .faq h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 42px); font-weight: 500; text-align: center; margin-bottom: 50px;
+  }
+  .faq-list { display: grid; gap: 2px; max-width: 760px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--rule); }
+  .faq-item summary {
+    padding: 20px 24px; cursor: pointer; list-style: none;
+    font-weight: 500; font-size: 15px; color: var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; font-size: 20px; color: var(--cocoa);
+    font-weight: 300; flex-shrink: 0; margin-left: 16px;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item .faq-body {
+    padding: 0 24px 20px; color: var(--muted);
+    font-size: 14px; line-height: 1.7;
+  }
+
+  /* CTA band */
+  .join-cta { background: var(--dustyrose); padding: 90px 40px; text-align: center; }
+  .join-cta h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: clamp(30px, 4vw, 44px); line-height: 1.1; color: #fff; margin-bottom: 16px;
+  }
+  .join-cta h2 em { font-style: italic; }
+  .join-cta p { color: rgba(255,255,255,0.88); max-width: 50ch; margin: 0 auto 32px; font-size: 15px; }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- Hero -->
+<section class="join-hero">
+  <div class="wrap-narrow">
+    <p class="eyebrow">Thriving Mama Community</p>
+    <h1>You Deserve to <em>Thrive</em>,<br>Not Just Survive.</h1>
+    <p>Join a growing community of mothers getting expert-led guidance, evidence-based resources, and a space to rediscover themselves — led by a physician who walks the journey with you.</p>
+    <div class="btn-row">
+      <a href="#pricing" class="btn btn-white" style="background:#fff;color:var(--ink);">See Membership Plans</a>
+      <a href="booking.html" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.4);">Book a Free Call First</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="wrap" id="pricing" style="padding-bottom: 90px;">
+  <div class="pricing-wrap">
+
+    <div class="pricing-card">
+      <p class="plan-name">Monthly</p>
+      <div class="price"><span>£</span>29</div>
+      <p class="cadence">per month · cancel anytime</p>
+      <div class="divider"></div>
+      <ul>
+        <li>Monthly live Q&amp;A with Dr. Seher</li>
+        <li>Private community forum</li>
+        <li>Growing resource library</li>
+        <li>Weekly wellness check-ins</li>
+        <li class="muted">Small-group cohort sessions</li>
+        <li class="muted">1-1 coaching discount</li>
+      </ul>
+      <a href="booking.html" class="btn btn-ghost">Get Started</a>
+      <p class="note">No commitment — cancel anytime</p>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-pill">Most Popular</div>
+      <p class="plan-name">Annual</p>
+      <div class="price"><span>£</span>249</div>
+      <p class="cadence">per year · save £99</p>
+      <div class="divider"></div>
+      <ul>
+        <li>Monthly live Q&amp;A with Dr. Seher</li>
+        <li>Private community forum</li>
+        <li>Growing resource library</li>
+        <li>Weekly wellness check-ins</li>
+        <li>Small-group cohort sessions</li>
+        <li>10% discount on 1-1 coaching</li>
+      </ul>
+      <a href="booking.html" class="btn btn-cocoa">Join Annual Plan</a>
+      <p class="note">Best value · 2 months free</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- What's included -->
+<section class="included">
+  <div class="wrap">
+    <h2>Everything <em>Included</em></h2>
+    <p class="sub">One membership gives you access to everything you need to feel supported, informed, and empowered as a mother.</p>
+    <div class="included-grid">
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </span>
+        <h4>Monthly Live Q&amp;A</h4>
+        <p>Join Dr. Seher live each month to ask your questions and get real, evidence-based answers in real time.</p>
+      </div>
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <h4>Private Community</h4>
+        <p>A members-only forum where you can connect with other mothers, share experiences, and find your people.</p>
+      </div>
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </span>
+        <h4>Resource Library</h4>
+        <p>A growing collection of guides, planners, and evidence-based wellness resources — all in one place.</p>
+      </div>
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <h4>Weekly Check-Ins</h4>
+        <p>Stay on track with weekly wellness prompts, habit trackers, and reflections delivered to your inbox.</p>
+      </div>
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </span>
+        <h4>Monthly Workshops</h4>
+        <p>Deep-dive workshops on topics like postpartum recovery, sleep, nutrition, and identity in motherhood.</p>
+      </div>
+      <div class="inc-card">
+        <span class="ichip" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <h4>Expert Guest Sessions</h4>
+        <p>Hear from specialists in nutrition, mental health, sleep science, and more — curated for mothers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="wrap">
+    <h2>What <em>Members</em> Say</h2>
+    <div class="t-grid">
+      <div class="t-card">
+        <p class="quote">"I've never felt so supported. Dr. Seher's Q&As are the highlight of my month — she answers questions I didn't even know I had."</p>
+        <p class="author">Sarah M. · Member since 2025</p>
+      </div>
+      <div class="t-card">
+        <p class="quote">"The resource library alone is worth the membership. I've used the postpartum recovery guide every single week."</p>
+        <p class="author">Aisha K. · Member since 2025</p>
+      </div>
+      <div class="t-card">
+        <p class="quote">"Finding this community changed my experience of new motherhood. I finally feel like I'm not doing this alone."</p>
+        <p class="author">Emma R. · Member since 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Can I cancel my membership at any time?</summary>
+        <div class="faq-body">Yes — monthly members can cancel at any time and won't be charged again. Annual memberships are non-refundable but give you access for the full year.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is this a substitute for medical advice?</summary>
+        <div class="faq-body">No. The Thriving Mama community provides education, support, and wellness guidance only. It does not replace personalised medical advice, diagnosis, or treatment. If you need medical care, please contact your GP or healthcare professional.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens after I join?</summary>
+        <div class="faq-body">You'll receive a welcome email within minutes with your login details, a guide to getting started, and the date of the next live Q&A session.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Are the live sessions recorded?</summary>
+        <div class="faq-body">Yes — all live Q&A sessions and workshops are recorded and added to the resource library, so you never miss out even if you can't attend live.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is this suitable if I'm pregnant, not yet a mother, or have older children?</summary>
+        <div class="faq-body">Absolutely. The community is open to anyone on the motherhood journey — from those trying to conceive, through pregnancy, postpartum, and beyond.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="join-cta">
+  <div class="wrap-narrow">
+    <h2>Ready to Stop <em>Surviving</em><br>and Start Thriving?</h2>
+    <p>Join hundreds of mothers who have found support, knowledge, and community inside Thriving Mama.</p>
+    <a href="#pricing" class="btn btn-white" style="background:#fff;color:var(--ink);">Choose Your Plan</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/site.js"></script>
+</body>
+</html>
