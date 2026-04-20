@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blog — Dr. Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .blog-hero {
+    background: linear-gradient(90deg, #F5EFEA 0%, #E8D7C8 100%);
+    padding: 90px 0 110px; text-align: center;
+  }
+  .blog-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(42px, 5.5vw, 62px);
+    line-height: 1.05; color: var(--ink);
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+  .blog-hero p {
+    max-width: 52ch; margin: 24px auto 0;
+    color: var(--ink); opacity: 0.78; font-size: 15px; line-height: 1.65;
+  }
+
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    margin-top: -60px; position: relative; z-index: 2;
+    padding-bottom: 90px;
+  }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; margin-top: -40px; } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  .blog-card {
+    background: #fff;
+    border: 1px solid rgba(143,116,98,0.12);
+    box-shadow: 0 20px 50px -35px rgba(31,31,31,0.15);
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .blog-card:hover { box-shadow: 0 30px 60px -30px rgba(31,31,31,0.2); transform: translateY(-2px); }
+
+  .blog-card .card-img {
+    aspect-ratio: 16/9; overflow: hidden;
+    background: repeating-linear-gradient(135deg, var(--warmsand) 0 14px, var(--dustyrose) 14px 28px);
+  }
+  .blog-card .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .blog-card .card-body { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .blog-card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cocoa); font-weight: 500; margin-bottom: 12px;
+  }
+  .blog-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; line-height: 1.2;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .blog-card p { color: var(--muted); font-size: 13.5px; line-height: 1.65; margin-bottom: 20px; flex: 1; }
+  .blog-card .rlink {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cocoa); font-weight: 500;
+    border-bottom: 1px solid var(--cocoa); padding-bottom: 2px;
+    align-self: flex-start;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .blog-card .rlink:hover { color: var(--ink); border-color: var(--ink); }
+
+  .blog-card .meta {
+    font-size: 12px; color: var(--muted); margin-top: 16px;
+    padding-top: 14px; border-top: 1px solid var(--rule);
+  }
+
+  /* Featured post */
+  .blog-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 600px) { .blog-card.featured { grid-template-columns: 1fr; } }
+  .blog-card.featured .card-img { aspect-ratio: auto; min-height: 280px; }
+  .blog-card.featured h3 { font-size: 30px; }
+
+  .newsletter {
+    background: var(--dustyrose); padding: 80px 40px; text-align: center;
+  }
+  .newsletter .badge { background: rgba(255,255,255,0.55); color: var(--ink); margin-bottom: 20px; }
+  .newsletter h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 500; color: #fff;
+    margin-bottom: 14px;
+  }
+  .newsletter p { color: rgba(255,255,255,0.88); max-width: 48ch; margin: 0 auto 28px; font-size: 14px; }
+  .newsletter form { display: flex; gap: 0; max-width: 420px; margin: 0 auto; }
+  .newsletter input {
+    flex: 1; border: none; background: #fff;
+    padding: 13px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px;
+    color: var(--ink); outline: none;
+  }
+  .newsletter button {
+    background: var(--cocoa); color: #fff;
+    padding: 13px 22px; font-size: 13px; font-weight: 500;
+    border: none; cursor: pointer; font-family: inherit;
+    transition: background 0.2s;
+  }
+  .newsletter button:hover { background: var(--ink); }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="blog-hero">
+  <div class="wrap-narrow">
+    <h1>The <em>Blog</em></h1>
+    <p>Evidence-based articles on maternal health, postpartum recovery, women's wellness, and the realities of modern motherhood.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="blog-grid">
+
+    <!-- Featured -->
+    <article class="blog-card featured">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, var(--sage) 0 14px, #9db58c 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Postpartum · Featured</p>
+        <h3>The Fourth Trimester: What No One Tells You About the First 12 Weeks Postpartum</h3>
+        <p>The weeks after birth are some of the most physically and emotionally demanding of a woman's life — yet they receive the least support. Here's what to expect and how to give yourself the care you deserve.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · April 2026 · 8 min read</div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, var(--warmsand) 0 14px, var(--dustyrose) 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Maternal Wellness</p>
+        <h3>How to Rebuild Your Identity After Becoming a Mother</h3>
+        <p>Matrescence — the process of becoming a mother — is real. Understanding it is the first step to thriving, not just surviving.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · March 2026 · 6 min read</div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, var(--blush) 0 14px, var(--mushroom) 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Nutrition</p>
+        <h3>5 Evidence-Based Foods That Support Postpartum Recovery</h3>
+        <p>What you eat in the weeks after birth has a direct impact on your energy, mood, and healing. Here's what the science says.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · March 2026 · 5 min read</div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, #c8b8a2 0 14px, var(--warmsand) 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Women's Health</p>
+        <h3>Understanding Your Hormones: A Guide for New Mothers</h3>
+        <p>From oestrogen to oxytocin, the hormonal shifts after birth are profound. Here's a plain-English guide to what's happening and why it matters.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · February 2026 · 7 min read</div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, var(--sage) 0 14px, #b8cca8 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Mental Health</p>
+        <h3>Postnatal Anxiety: Recognising the Signs and Seeking Help</h3>
+        <p>Postnatal anxiety is more common than postnatal depression — and far less talked about. Knowing the signs could change everything.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · February 2026 · 6 min read</div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="card-img" style="background: repeating-linear-gradient(135deg, var(--dustyrose) 0 14px, #c4a89a 14px 28px);"></div>
+      <div class="card-body">
+        <p class="tag">Lifestyle</p>
+        <h3>Sleep When the Baby Sleeps — and Other Advice Worth Questioning</h3>
+        <p>Some of the most repeated postpartum advice is well-meaning but unhelpful. Let's look at what actually works.</p>
+        <a href="#" class="rlink">Read Article →</a>
+        <div class="meta">Dr. Seher · January 2026 · 4 min read</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="wrap-narrow">
+    <span class="badge">Free Weekly Tips</span>
+    <h2>Get Articles Straight to Your Inbox</h2>
+    <p>Join thousands of mothers receiving evidence-based health tips, new articles, and exclusive resources every week.</p>
+    <form onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:#fff;font-size:15px\'>You\'re in! Welcome to the community. ✓</p>'">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/site.js"></script>
+</body>
+</html>
