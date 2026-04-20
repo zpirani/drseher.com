@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Thriving Mama — YouTube Studio · Dr. Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .studio-head { padding: 70px 0 60px; }
+  .studio-head .inner {
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end;
+  }
+  @media (max-width: 820px) {
+    .studio-head .inner { grid-template-columns: 1fr; align-items: start; }
+  }
+  .pill-tag {
+    display: inline-block;
+    background: var(--porcelain); color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .studio-head h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(40px, 5.4vw, 66px);
+    line-height: 1.02; letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+  .studio-head p {
+    color: var(--muted); max-width: 52ch;
+    font-size: 15px; line-height: 1.7;
+  }
+  .btn-youtube {
+    background: #E7000B; color: #fff;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px; font-size: 13px; font-weight: 500; letter-spacing: 0.03em;
+    border-radius: 8px; transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-youtube:hover { background: #b30009; }
+
+  /* ===== Video grid ===== */
+  .studio-videos { padding: 30px 0 80px; }
+  .vgrid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .vgrid3 { grid-template-columns: 1fr; } }
+
+  .vcard {
+    background: #fff;
+    display: flex; flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .vcard:hover { transform: translateY(-3px); box-shadow: 0 24px 40px -30px rgba(31,31,31,0.22); }
+  .vthumb {
+    aspect-ratio: 16/11;
+    position: relative; overflow: hidden;
+  }
+  .vthumb .bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+  }
+  .vthumb.a .bg { background-color: #D8B8A5; background-image: linear-gradient(140deg, #EFCBB2 0%, #A87E64 100%); }
+  .vthumb.b .bg { background-color: #4A3D2C; background-image: linear-gradient(140deg, #6B5338 0%, #1F1710 100%); }
+  .vthumb.c .bg { background-color: #8FA78B; background-image: linear-gradient(140deg, #B8C9A6 0%, #556754 100%); }
+
+  /* silhouetted portrait hints using layered radial gradients */
+  .vthumb.a .bg::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 42% 48% at 50% 58%, rgba(255,230,210,0.75) 0%, transparent 60%),
+      radial-gradient(ellipse 28% 22% at 50% 38%, rgba(255,210,180,0.55) 0%, transparent 70%);
+  }
+  .vthumb.b .bg::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 30% 24% at 46% 52%, rgba(220,180,150,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 24% 20% at 58% 52%, rgba(230,195,165,0.4) 0%, transparent 65%);
+  }
+  .vthumb.c .bg::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 38% 46% at 52% 60%, rgba(240,215,190,0.75) 0%, transparent 60%),
+      radial-gradient(ellipse 22% 18% at 52% 34%, rgba(250,225,200,0.6) 0%, transparent 70%);
+  }
+
+  .vthumb .dur {
+    position: absolute; bottom: 10px; right: 10px;
+    background: rgba(31,26,31,0.82); color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; padding: 4px 8px; letter-spacing: 0.04em;
+  }
+  .vmeta { padding: 22px 24px 26px; }
+  .vmeta h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .vmeta .stats-row {
+    display: flex; gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--muted);
+    text-transform: uppercase;
+  }
+  .vmeta .stats-row span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* ===== Exclusive content dark card ===== */
+  .exclusive-band { padding: 20px 0 100px; }
+  .exclusive-card {
+    background: #1F1A1F; color: #fff;
+    border-radius: 16px;
+    padding: clamp(48px, 7vw, 80px) clamp(32px, 6vw, 72px);
+    text-align: center;
+  }
+  .exclusive-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.15; margin-bottom: 22px;
+  }
+  .exclusive-card p {
+    max-width: 58ch; margin: 0 auto 32px;
+    color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.7;
+  }
+  .exclusive-card .cta-row { display: flex; justify-content: center; }
+  .exclusive-card .btn-light {
+    background: #fff; color: var(--ink);
+    padding: 13px 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    border-radius: 4px; transition: background 0.2s, color 0.2s;
+  }
+  .exclusive-card .btn-light:hover { background: var(--dustyrose); }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- ===== Studio head ===== -->
+<section class="studio-head">
+  <div class="wrap">
+    <div class="inner">
+      <div>
+        <span class="pill-tag">Video Masterclasses</span>
+        <h1>Latest from the Studio.</h1>
+        <p>Watch my latest health deep-dives, pediatric guides, and lifestyle tips for the modern mother.</p>
+      </div>
+      <a href="#" class="btn-youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        Subscribe on YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Videos grid ===== -->
+<section class="studio-videos">
+  <div class="wrap">
+    <div class="vgrid3">
+
+      <a href="#" class="vcard">
+        <div class="vthumb a"><div class="bg"></div><span class="dur">15:40</span></div>
+        <div class="vmeta">
+          <h4>Maternal Health: Postpartum Vitality</h4>
+          <div class="stats-row">
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              12k views
+            </span>
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Recent upload
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="vcard">
+        <div class="vthumb b"><div class="bg"></div><span class="dur">22:15</span></div>
+        <div class="vmeta">
+          <h4>Pediatric Nutrition Foundations</h4>
+          <div class="stats-row">
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              8.6k views
+            </span>
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Recent upload
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="vcard">
+        <div class="vthumb c"><div class="bg"></div><span class="dur">10:00</span></div>
+        <div class="vmeta">
+          <h4>Meditation for the Busy Mama</h4>
+          <div class="stats-row">
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              25k views
+            </span>
+            <span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Recent upload
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Exclusive content CTA ===== -->
+<section class="exclusive-band">
+  <div class="wrap">
+    <div class="exclusive-card">
+      <h2>Want more exclusive content?</h2>
+      <p>The YouTube channel is just the surface. Join the Thriving Mama community for extended director's cut masterclasses and live Q&amp;A sessions.</p>
+      <div class="cta-row">
+        <a href="thriving-mama-join.html" class="btn-light">Join the Community Hub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

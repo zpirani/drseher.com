@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About Me — Dr. Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* About hero — portrait left, white card right on porcelain band */
+  .about-hero-band { background: var(--porcelain); padding: 70px 0 90px; }
+  .about-hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; align-items: stretch; }
+  @media (max-width: 900px) { .about-hero { grid-template-columns: 1fr; gap: 24px; } }
+  .about-hero .portrait-img { aspect-ratio: 4/5; }
+  .about-hero .portrait-img img { object-position: 58% 28%; }
+  .about-card { background: #fff; padding: 60px 58px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 20px 50px -30px rgba(0,0,0,0.15); }
+  @media (max-width: 900px) { .about-card { padding: 40px 32px; } }
+  .about-card .eyebrow-pill { align-self: flex-start; background: var(--bg); color: var(--cocoa); padding: 6px 16px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 22px; }
+  .about-card h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 46px); font-weight: 400; line-height: 1.1; margin-bottom: 24px; }
+  .about-card h1 em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+  .about-card p { color: var(--muted); font-size: 14px; margin-bottom: 14px; max-width: 52ch; }
+  .about-card .btn { align-self: flex-start; margin-top: 18px; }
+
+  /* Background section — centered prose */
+  .bg-section { padding: 100px 0; }
+  .bg-section h2 { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.8vw, 42px); font-weight: 500; color: var(--cocoa); margin-bottom: 40px; }
+  .bg-section h2 em { font-style: italic; }
+  .bg-prose { max-width: 72ch; margin: 0 auto; text-align: center; }
+  .bg-prose p { color: var(--ink); font-size: 15px; line-height: 1.85; margin-bottom: 22px; }
+
+  /* Mission — warmsand band with floating white quote card */
+  .mission-band { background: var(--warmsand); padding: 90px 0 120px; position: relative; }
+  .mission-band h2 { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.8vw, 40px); font-weight: 500; color: var(--ink); margin-bottom: 20px; }
+  .mission-band > .wrap > p.lead-mission { text-align: center; max-width: 64ch; margin: 0 auto 50px; color: var(--ink); opacity: 0.85; font-size: 15px; }
+  .mission-quote { background: #fff; max-width: 720px; margin: 0 auto; padding: 50px 60px; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.2); text-align: center; }
+  @media (max-width: 700px) { .mission-quote { padding: 36px 28px; } }
+  .mission-quote .q { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: var(--ink); margin-bottom: 24px; }
+  .mission-quote .author { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cocoa); }
+
+  /* Work together cocoa band */
+  .work-band { background: var(--cocoa); color: #fff; padding: 90px 40px; text-align: center; }
+  .work-band h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 46px); font-weight: 500; margin-bottom: 18px; }
+  .work-band p { color: rgba(255,255,255,0.85); max-width: 56ch; margin: 0 auto 32px; font-size: 15px; }
+  .work-band .btn-white { background: #fff; color: var(--ink); border: none; }
+  .work-band .btn-white:hover { background: var(--dustyrose); color: var(--ink); }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="about-hero-band">
+  <div class="wrap">
+    <div class="about-hero">
+      <div class="portrait-img"><img src="../assets/dr-seher.jpg" alt="Dr. Seher"></div>
+      <div class="about-card">
+        <span class="eyebrow-pill">MEET DR. SEHER</span>
+        <h1>Hi, I'm <em>Dr. Seher.</em></h1>
+        <p>After becoming a mother, I found myself searching not only for authentic connection but also becoming who I am. Going through the journey of a little baby was tough — and it made me realise how much support and connection matter.</p>
+        <p>With over a decade of experience in clinical practice and a deep passion for the power of coaching, I am dedicated to empowering women to take control of their health and wellness during the most transformative years of their lives.</p>
+        <a href="../pages/work-with-me.html" class="btn btn-cocoa">Book Call With Me →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="bg-section">
+  <div class="wrap">
+    <h2>My <em>Background</em></h2>
+    <div class="bg-prose">
+      <p>I chose medicine because of my love for science and my personal belief in helping people. Even when others told me the journey would be too difficult, I kept going — and in the blink of an eye, I can see that a growth mindset has been crucial to everything I have achieved.</p>
+      <p>Realising how powerfully mindset influences both achievement and living a truly fulfilling life itself, I am continually fascinated by coaching, and that is what led me to become a coach.</p>
+      <p>After becoming a mother, I have seen first-hand the challenges of accompanying myself while balancing motherhood, wellness, and identity — and that is what inspired me to empower mothers to do the same.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mission-band">
+  <div class="wrap">
+    <h2>My <em>Mission</em></h2>
+    <p class="lead-mission">My mission is to help mothers move beyond survival mode by supporting them mentally, physically, and emotionally — a thriving, through evidence-based coaching and community.</p>
+    <div class="mission-quote">
+      <div class="q">"Motherhood is a journey that requires courage, patience, and community. My goal is to make sure no mama ever navigates the challenge of motherhood alone."</div>
+      <div class="author">— Dr. Seher</div>
+    </div>
+  </div>
+</section>
+
+<section class="work-band">
+  <h2>Let's Work Together</h2>
+  <p>I'd love to support you on your health and wellness journey. Explore how we can work together.</p>
+  <a href="../pages/work-with-me.html" class="btn btn-white">Explore Services →</a>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

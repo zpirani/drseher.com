@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Thriving Mama — Dr. Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* ===== Sage hero card on porcelain ===== */
+  .tm-hero-band { background: var(--porcelain); padding: 80px 0 110px; }
+  .tm-hero {
+    background: var(--sage); color: #fff;
+    border-radius: 24px;
+    padding: clamp(56px, 8vw, 110px) clamp(32px, 6vw, 90px);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .tm-hero .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.82); margin-bottom: 22px;
+  }
+  .tm-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(42px, 5.4vw, 70px);
+    line-height: 1.05; letter-spacing: -0.01em;
+    max-width: 18ch; margin: 0 auto;
+  }
+  .tm-hero h1 em { font-style: italic; font-weight: 500; }
+  .tm-hero p {
+    margin: 28px auto 0; max-width: 58ch;
+    font-size: 15.5px; line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+  }
+  .tm-hero .hero-cta-row {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .tm-hero .btn-white {
+    background: #fff; color: var(--ink);
+    padding: 14px 26px; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tm-hero .btn-white:hover { background: var(--cocoa); color: #fff; }
+  .tm-hero .btn-ghost {
+    background: transparent; color: #fff;
+    border: 1px solid rgba(255,255,255,0.55);
+    padding: 14px 26px; font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .tm-hero .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+
+  /* decorative hero stats strip */
+  .tm-hero .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    max-width: 680px; margin: 56px auto 0;
+    border-top: 1px solid rgba(255,255,255,0.28);
+    padding-top: 30px; gap: 20px;
+  }
+  .tm-hero .stat .n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 500; font-style: italic;
+  }
+  .tm-hero .stat .l {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.78); margin-top: 4px;
+  }
+  @media (max-width: 620px) { .tm-hero .stats { grid-template-columns: 1fr; gap: 24px; } }
+
+  /* ===== Intro prose ===== */
+  .tm-intro { padding: 100px 0 40px; text-align: center; }
+  .tm-intro .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 20px;
+  }
+  .tm-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.1; max-width: 22ch; margin: 0 auto 24px;
+  }
+  .tm-intro h2 em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+  .tm-intro p {
+    max-width: 58ch; margin: 0 auto; color: var(--muted);
+    font-size: 15.5px; line-height: 1.75;
+  }
+
+  /* ===== Two pillars split ===== */
+  .pillars { padding: 80px 0; }
+  .pillars-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 860px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+  .pillar {
+    background: #fff; padding: 48px 44px;
+    display: flex; flex-direction: column;
+    border: 1px solid var(--rule);
+  }
+  .pillar.youtube { background: var(--bg-soft); border-color: transparent; }
+  .pillar.community {
+    background: var(--cocoa); color: #fff; border-color: transparent;
+  }
+
+  .pillar .p-ichip {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(143,116,98,0.12); color: var(--cocoa);
+    margin-bottom: 26px;
+  }
+  .pillar.community .p-ichip {
+    background: rgba(255,255,255,0.15); color: #fff;
+  }
+
+  .pillar .p-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 12px;
+  }
+  .pillar.community .p-tag { color: rgba(255,255,255,0.75); }
+
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: clamp(28px, 3.2vw, 36px);
+    line-height: 1.12; margin-bottom: 16px;
+  }
+  .pillar h3 em { font-style: italic; }
+  .pillar > p {
+    font-size: 14.5px; line-height: 1.7; margin-bottom: 24px;
+    color: var(--muted);
+  }
+  .pillar.community > p { color: rgba(255,255,255,0.85); }
+
+  .pillar ul {
+    list-style: none; display: grid; gap: 12px; margin-bottom: 32px;
+  }
+  .pillar ul li {
+    position: relative; padding-left: 26px;
+    font-size: 13.5px; line-height: 1.55;
+  }
+  .pillar ul li::before {
+    content: "✓"; position: absolute; left: 0; top: 0;
+    color: var(--cocoa); font-weight: 600;
+  }
+  .pillar.community ul li::before { color: var(--sage); }
+
+  .pillar .p-cta {
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 10px;
+    align-self: flex-start;
+    padding: 13px 22px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pillar.youtube .p-cta { background: var(--cocoa); color: #fff; }
+  .pillar.youtube .p-cta:hover { background: var(--ink); }
+  .pillar.community .p-cta { background: #fff; color: var(--ink); }
+  .pillar.community .p-cta:hover { background: var(--dustyrose); }
+
+  /* ===== Featured videos grid ===== */
+  .featured { padding: 80px 0 100px; background: var(--bg-soft); }
+  .featured .head { text-align: center; margin-bottom: 54px; }
+  .featured .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 16px;
+  }
+  .featured h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(32px, 4vw, 44px);
+  }
+  .featured h2 em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+  .featured .head p {
+    color: var(--muted); font-size: 15px; max-width: 52ch; margin: 14px auto 0;
+  }
+
+  .vgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .vgrid { grid-template-columns: 1fr; } }
+
+  .vcard {
+    background: #fff; border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .vcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 40px -30px rgba(31,31,31,0.22);
+  }
+  .vthumb {
+    aspect-ratio: 16/10;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .vthumb.a { background: linear-gradient(135deg, #CDB1A5 0%, #A98874 100%); }
+  .vthumb.b { background: linear-gradient(135deg, #B3C6A2 0%, #8F9E7B 100%); }
+  .vthumb.c { background: linear-gradient(135deg, #D4CAB5 0%, #A99C84 100%); }
+  .vthumb .play {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(255,255,255,0.92); color: var(--cocoa);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.25s ease;
+  }
+  .vcard:hover .play { transform: scale(1.08); }
+  .vthumb .dur {
+    position: absolute; bottom: 12px; right: 12px;
+    background: rgba(31,31,31,0.78); color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; padding: 4px 8px;
+  }
+  .vmeta { padding: 24px 26px 28px; }
+  .vmeta .cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 10px;
+  }
+  .vmeta h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .vmeta p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  .vmeta .stats-row {
+    margin-top: 16px; display: flex; gap: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .featured .all-link {
+    text-align: center; margin-top: 48px;
+  }
+  .featured .all-link a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cocoa); border-bottom: 1px solid var(--cocoa);
+    padding-bottom: 3px;
+  }
+  .featured .all-link a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ===== Pillars of content (topics) ===== */
+  .topics { padding: 100px 0; }
+  .topics .head { text-align: center; margin-bottom: 56px; }
+  .topics .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 16px;
+  }
+  .topics h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(32px, 4vw, 44px);
+  }
+  .topics h2 em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+
+  .tgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .tgrid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .tgrid { grid-template-columns: 1fr; } }
+
+  .tcard {
+    background: #fff; padding: 32px 28px;
+    border: 1px solid var(--rule); text-align: center;
+  }
+  .tcard .ichip {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--porcelain); color: var(--cocoa);
+    margin-bottom: 18px;
+  }
+  .tcard h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500; margin-bottom: 8px;
+  }
+  .tcard p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* ===== Dusty rose testimonial band ===== */
+  .tm-quote {
+    background: var(--dustyrose); color: #fff;
+    padding: 90px 40px; text-align: center;
+  }
+  .tm-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 400;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.3; max-width: 44ch; margin: 0 auto;
+  }
+  .tm-quote .who {
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+  }
+
+  /* ===== Final CTA (cocoa) ===== */
+  .tm-cta {
+    background: var(--cocoa); color: #fff;
+    padding: 100px 40px; text-align: center;
+  }
+  .tm-cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: clamp(34px, 4.4vw, 50px);
+    line-height: 1.1;
+  }
+  .tm-cta h2 em { font-style: italic; font-weight: 500; }
+  .tm-cta p {
+    max-width: 54ch; margin: 18px auto 32px;
+    color: rgba(255,255,255,0.85); font-size: 15px;
+  }
+  .tm-cta .row {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .tm-cta .btn-white {
+    background: #fff; color: var(--ink); padding: 14px 26px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .tm-cta .btn-white:hover { background: var(--dustyrose); color: var(--ink); }
+  .tm-cta .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.55); color: #fff;
+    padding: 14px 26px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .tm-cta .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+</style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- ===== Hero ===== -->
+<section class="tm-hero-band">
+  <div class="wrap">
+    <div class="tm-hero">
+      <div class="eyebrow">· Thriving Mama ·</div>
+      <h1>Dedicated wellness content <em>just for you</em></h1>
+      <p>A YouTube channel and private community where thousands of mothers learn, share, and grow together — grounded in evidence-based maternal and pediatric health.</p>
+      <div class="hero-cta-row">
+        <a href="thriving-mama-youtube.html" class="btn-white">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7l-7 5 7 5V7zM1 5h15v14H1z"/></svg>
+          Watch on YouTube
+        </a>
+        <a href="thriving-mama-join.html" class="btn-ghost">
+          Join the Community →
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">48k</div><div class="l">Subscribers</div></div>
+        <div class="stat"><div class="n">120+</div><div class="l">Videos</div></div>
+        <div class="stat"><div class="n">2.3k</div><div class="l">Mamas Inside</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Intro ===== -->
+<section class="tm-intro">
+  <div class="wrap-narrow">
+    <div class="kicker">· What is Thriving Mama ·</div>
+    <h2>An evidence-based space for <em>modern motherhood</em></h2>
+    <p>Every week I publish deeply-researched videos and lead live sessions inside the membership — covering the questions mothers actually ask at 2am, without the fear-mongering or the fluff.</p>
+  </div>
+</section>
+
+<!-- ===== Pillars ===== -->
+<section class="pillars wrap">
+  <div class="pillars-grid">
+
+    <article class="pillar youtube">
+      <span class="p-ichip" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </span>
+      <div class="p-tag">Free · Weekly videos</div>
+      <h3>The <em>YouTube</em> Channel</h3>
+      <p>Long-form, deeply sourced videos on maternal and pediatric health — breastfeeding, sleep, nutrition, postpartum recovery, and more.</p>
+      <ul>
+        <li>New evidence-based video every Tuesday</li>
+        <li>Research citations linked in every description</li>
+        <li>Live Q&amp;A premieres each month</li>
+        <li>Free and accessible to every mother, worldwide</li>
+      </ul>
+      <a href="thriving-mama-youtube.html" class="p-cta">Explore the Channel →</a>
+    </article>
+
+    <article class="pillar community">
+      <span class="p-ichip" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </span>
+      <div class="p-tag">Membership · Private</div>
+      <h3>The <em>Community</em></h3>
+      <p>A private space for deeper support — live sessions with me, a searchable library of responses to real member questions, and mothers who truly get it.</p>
+      <ul>
+        <li>Bi-weekly live group calls with Dr. Seher</li>
+        <li>Private forum moderated by a clinical team</li>
+        <li>Exclusive workshops and printable guides</li>
+        <li>24/7 access across every time zone</li>
+      </ul>
+      <a href="thriving-mama-join.html" class="p-cta">Join the Community →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== Featured videos ===== -->
+<section class="featured">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">· Latest on the channel ·</div>
+      <h2>Featured <em>Videos</em></h2>
+      <p>Start with the most-watched episodes, hand-picked for new mothers finding the channel for the first time.</p>
+    </div>
+
+    <div class="vgrid">
+
+      <a href="thriving-mama-youtube.html" class="vcard">
+        <div class="vthumb a">
+          <span class="play" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+          </span>
+          <span class="dur">18:42</span>
+        </div>
+        <div class="vmeta">
+          <div class="cat">Breastfeeding</div>
+          <h4>What I wish every new mother knew about milk supply</h4>
+          <p>The myths that keep mothers anxious in the first six weeks — and what the research actually shows.</p>
+          <div class="stats-row"><span>124k views</span><span>· 3 weeks ago</span></div>
+        </div>
+      </a>
+
+      <a href="thriving-mama-youtube.html" class="vcard">
+        <div class="vthumb b">
+          <span class="play" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+          </span>
+          <span class="dur">24:15</span>
+        </div>
+        <div class="vmeta">
+          <div class="cat">Infant Sleep</div>
+          <h4>Gentle sleep foundations for the 0–6 month window</h4>
+          <p>A calm, evidence-based walkthrough of what is and isn't reasonable to expect in those first months.</p>
+          <div class="stats-row"><span>89k views</span><span>· 1 month ago</span></div>
+        </div>
+      </a>
+
+      <a href="thriving-mama-youtube.html" class="vcard">
+        <div class="vthumb c">
+          <span class="play" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+          </span>
+          <span class="dur">15:08</span>
+        </div>
+        <div class="vmeta">
+          <div class="cat">Postpartum</div>
+          <h4>The fourth trimester: healing that nobody talks about</h4>
+          <p>Pelvic floor, hormones, mood — what your body is doing in the twelve weeks after birth.</p>
+          <div class="stats-row"><span>62k views</span><span>· 6 weeks ago</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="all-link">
+      <a href="thriving-mama-youtube.html">Browse all videos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Topics ===== -->
+<section class="topics">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">· Content pillars ·</div>
+      <h2>What we <em>cover</em></h2>
+    </div>
+
+    <div class="tgrid">
+      <article class="tcard">
+        <span class="ichip" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </span>
+        <h5>Pregnancy &amp; Birth</h5>
+        <p>Preparation grounded in research — without the fear.</p>
+      </article>
+
+      <article class="tcard">
+        <span class="ichip" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </span>
+        <h5>Infant &amp; Child Health</h5>
+        <p>Feeding, sleep, milestones, the calls you'll need to make.</p>
+      </article>
+
+      <article class="tcard">
+        <span class="ichip" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </span>
+        <h5>Postpartum Recovery</h5>
+        <p>Physical, hormonal, and emotional healing after birth.</p>
+      </article>
+
+      <article class="tcard">
+        <span class="ichip" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+        </span>
+        <h5>Mother's Wellbeing</h5>
+        <p>Sleep, nutrition, mental health — you matter, too.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonial band ===== -->
+<section class="tm-quote">
+  <blockquote>“This community is the first place in three years where I've felt like a whole person — not just a mother.”</blockquote>
+  <div class="who">— Amara · Member since 2024</div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="tm-cta">
+  <h2>Come grow with <em>us</em></h2>
+  <p>Start with the channel. Go deeper inside the community. Either way, you're welcome here.</p>
+  <div class="row">
+    <a href="thriving-mama-youtube.html" class="btn-white">Explore YouTube</a>
+    <a href="thriving-mama-join.html" class="btn-ghost">Join the Community →</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/site.js"></script>
+</body>
+</html>
