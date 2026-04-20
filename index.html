@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Seher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&family=Montserrat:ital,wght@1,400&family=Nunito:wght@600&family=Playfair+Display:wght@300;400&family=Raleway:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #ebe8e6;
+      font-family: 'DM Sans', sans-serif;
+      color: #1f1a1f;
+    }
+
+    a { text-decoration: none; }
+
+    .page { width: 1127px; margin: 0 auto; }
+
+    /* ── Navigation ─────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 81px;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid rgba(143,116,98,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      padding: 0 67.5px;
+    }
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: #1f1a1f;
+      letter-spacing: 0.6px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: rgba(31,26,31,0.7);
+    }
+    .nav-link.active { color: #cdb1a5; }
+    .nav-link-icon {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: rgba(31,26,31,0.7);
+    }
+    .nav-link-icon img { width: 16px; height: 16px; }
+    .nav-cta {
+      background: #8f7462;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      padding: 8px 18px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ── Hero ────────────────────────────────────────── */
+    .hero {
+      height: 954px;
+      background: #fbf8f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-inner {
+      position: relative;
+      width: 1200px;
+      height: 954px;
+      flex-shrink: 0;
+    }
+    .hero-photo {
+      position: absolute;
+      left: 114.5px;
+      top: 142px;
+      width: 536px;
+      height: 811px;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-site-name {
+      position: absolute;
+      left: 393px;
+      top: 47px;
+      width: 414px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 47px;
+      line-height: 58px;
+      color: #4e4e4e;
+      letter-spacing: 1.175px;
+      text-transform: uppercase;
+    }
+    .hero-card {
+      position: absolute;
+      left: 548.5px;
+      top: 213px;
+      width: 541px;
+      height: 583px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-card-content {
+      position: relative;
+      width: 480px;
+      height: 571px;
+    }
+    .hero-hi {
+      position: absolute;
+      left: 48px;
+      top: 49px;
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
+      font-size: 48px;
+      line-height: 48px;
+      color: rgba(31,26,31,0.7);
+    }
+    .hero-h2 {
+      position: absolute;
+      left: 47.5px;
+      top: 120px;
+      width: 384px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 45px;
+      color: #1f1a1f;
+    }
+    .hero-p1 {
+      position: absolute;
+      left: 47.5px;
+      top: 225px;
+      width: 378px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 29.25px;
+      color: rgba(31,26,31,0.7);
+    }
+    .hero-p2 {
+      position: absolute;
+      left: 48px;
+      top: 323px;
+      width: 384px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 29.25px;
+      color: rgba(31,26,31,0.7);
+    }
+    .hero-cta-label {
+      position: absolute;
+      left: 47.5px;
+      top: 459px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 29.25px;
+      color: rgba(31,26,31,0.7);
+      white-space: nowrap;
+    }
+    .hero-btn {
+      position: absolute;
+      left: 47.5px;
+      top: 505px;
+      background: #8f7462;
+      border-radius: 6px;
+      padding: 10px 24px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    /* ── Intro ───────────────────────────────────────── */
+    .intro {
+      height: 537px;
+      background: #fbf8f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .intro-inner {
+      position: relative;
+      width: 1200px;
+      height: 537px;
+      flex-shrink: 0;
+    }
+    .intro-h3 {
+      position: absolute;
+      left: 222px;
+      top: 69px;
+      width: 760px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 52.8px;
+      color: #4e4e4e;
+    }
+    .intro-body {
+      position: absolute;
+      left: 247px;
+      top: 206px;
+      width: 711px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.375px;
+      color: #4e4e4e;
+    }
+    .intro-body p { line-height: 28.5px; margin-bottom: 28px; }
+    .intro-body p:last-child { margin-bottom: 0; }
+    .intro-label {
+      position: absolute;
+      left: 485px;
+      top: 478px;
+      width: 235px;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: #4e4e4e;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      line-height: 19.2px;
+    }
+
+    /* ── Services ────────────────────────────────────── */
+    .services {
+      background: #fbf8f5;
+      overflow: hidden;
+    }
+
+    /* Service row: alternating image + text panel */
+    .service-row {
+      display: flex;
+      width: 100%;
+      height: 509px;
+      position: relative;
+    }
+    .service-row + .service-row { border-top: 1px solid #e9d3c8; }
+
+    .service-panel {
+      width: 50%;
+      height: 509px;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .service-text-panel {
+      width: 50%;
+      height: 509px;
+      background: white;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px 39px 36px 59px;
+    }
+    .service-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px;
+      line-height: 60px;
+      color: #ddbaa9;
+      letter-spacing: 1.5px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 46px;
+      color: #4e4e4e;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .service-body {
+      font-family: 'Raleway', sans-serif;
+      font-size: 15px;
+      line-height: 24px;
+      color: #4e4e4e;
+      letter-spacing: 0.375px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .service-btn {
+      display: inline-block;
+      align-self: center;
+      background: #8f7462;
+      border-radius: 6px;
+      padding: 10px 16px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ── Expertise Section ───────────────────────────── */
+    .expertise {
+      background: white;
+      padding: 96px 67.5px;
+    }
+    .expertise-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .expertise-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 48px;
+      line-height: 48px;
+      color: #1f1a1f;
+      margin-bottom: 16px;
+    }
+    .expertise-header p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 28px;
+      color: rgba(31,26,31,0.7);
+      max-width: 653px;
+      margin: 0 auto;
+    }
+    .cards {
+      display: flex;
+      gap: 40px;
+    }
+    .card {
+      flex: 1;
+      border: 1px solid rgba(143,116,98,0.1);
+      border-radius: 12px;
+      padding: 32px 24px;
+      background: white;
+      min-height: 312px;
+      position: relative;
+    }
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(205,177,165,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .card-icon img { width: 28px; height: 28px; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 32px;
+      color: #1f1a1f;
+      margin-bottom: 12px;
+    }
+    .card p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 26px;
+      color: rgba(31,26,31,0.7);
+      margin-bottom: 32px;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #cdb1a5;
+    }
+    .card-link img { width: 16px; height: 16px; }
+
+    /* ── Thriving Mama Section ───────────────────────── */
+    .thriving {
+      background: #8f7462;
+      position: relative;
+      height: 834px;
+      overflow: hidden;
+    }
+    .thriving-content {
+      position: absolute;
+      left: 67.5px;
+      top: 96px;
+      width: 464px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px;
+      padding: 10px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.35px;
+      white-space: nowrap;
+      margin-bottom: 24px;
+    }
+    .thriving h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 48px;
+      line-height: 60px;
+      color: white;
+      width: 406px;
+      margin-bottom: 32px;
+    }
+    .thriving-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 32.5px;
+      color: rgba(255,255,255,0.8);
+      width: 453px;
+      margin-bottom: 40px;
+    }
+    .thriving-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .thriving-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 28px;
+      color: rgba(255,255,255,0.9);
+    }
+    .thriving-list li img { width: 24px; height: 24px; flex-shrink: 0; }
+    .btn-white {
+      display: inline-block;
+      background: white;
+      border-radius: 6px;
+      padding: 10px 20px;
+      color: #8f7462;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .thriving-image {
+      position: absolute;
+      right: 67.5px;
+      top: 192px;
+      width: 464px;
+      height: 450px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    .thriving-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Stats ───────────────────────────────────────── */
+    .stats {
+      background: #ebe8e6;
+      height: 208px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 67.5px;
+    }
+    .stat { text-align: center; width: 224px; }
+    .stat-value {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 48px;
+      color: #cdb1a5;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(31,26,31,0.7);
+    }
+
+    /* ── Free Guide ──────────────────────────────────── */
+    .guide {
+      background: linear-gradient(156.84deg, rgba(205,177,165,0.9) 0%, rgb(205,177,165) 100%);
+      padding: 96px 115.5px;
+      text-align: center;
+      min-height: 482px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .guide-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px;
+      padding: 10px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.35px;
+      margin-bottom: 24px;
+    }
+    .guide h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 48px;
+      line-height: 48px;
+      color: white;
+      margin-bottom: 24px;
+    }
+    .guide p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 32.5px;
+      color: white;
+      max-width: 836px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+    }
+    .btn-white-pink {
+      display: inline-block;
+      background: white;
+      border-radius: 6px;
+      padding: 10px 20px;
+      color: #cdb1a5;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+    }
+
+    /* ── CTA ─────────────────────────────────────────── */
+    .cta {
+      background: white;
+      min-height: 347px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 64px 67.5px;
+    }
+    .cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 48px;
+      line-height: 48px;
+      color: #cdb1a5;
+      margin-bottom: 24px;
+    }
+    .cta p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 32.5px;
+      color: rgba(31,26,31,0.7);
+      max-width: 661px;
+      margin-bottom: 32px;
+    }
+    .btn-brown {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #8f7462;
+      border-radius: 6px;
+      padding: 10px 20px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .btn-brown img { width: 16px; height: 16px; }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .footer {
+      background: white;
+      border-top: 1px solid rgba(143,116,98,0.1);
+      padding: 65px 67.5px 0;
+    }
+    .footer-top {
+      display: flex;
+      gap: 48px;
+      padding: 0 16px 48px;
+    }
+    .footer-brand { width: 212px; flex-shrink: 0; }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 28px;
+      color: #1f1a1f;
+      margin-bottom: 16px;
+    }
+    .footer-brand-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22.75px;
+      color: rgba(31,26,31,0.7);
+      width: 190px;
+      margin-bottom: 24px;
+    }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-social {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(143,116,98,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-social img { width: 16px; height: 16px; }
+    .footer-col { flex: 1; }
+    .footer-col-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(31,26,31,0.5);
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(31,26,31,0.7);
+    }
+    .footer-subscribe-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22.75px;
+      color: rgba(31,26,31,0.7);
+      width: 212px;
+      margin-bottom: 16px;
+    }
+    .footer-form { display: flex; gap: 8px; }
+    .footer-input {
+      flex: 1;
+      height: 36px;
+      background: #faf8f6;
+      border: 1px solid rgba(205,177,165,0.2);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: #1f1a1f;
+      outline: none;
+    }
+    .footer-submit {
+      background: #8f7462;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(143,116,98,0.1);
+      padding: 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(31,26,31,0.5);
+    }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(31,26,31,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">DOCTOR SEHER</a>
+    <div class="nav-links">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#" class="nav-link">About Me</a>
+      <a href="#" class="nav-link">Work With Me</a>
+      <span class="nav-link-icon">
+        Thriving Mama
+        <img src="https://www.figma.com/api/mcp/asset/64d3b38a-44be-4c57-8cdf-ad52d27dc9a1" alt="">
+      </span>
+      <a href="#" class="nav-cta">Book Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <img src="https://www.figma.com/api/mcp/asset/5a1dff4b-1595-4fda-b20a-e1faed4e89bb" alt="Doctor Seher">
+      </div>
+      <div class="hero-site-name">DOCTOR SEHER</div>
+      <div class="hero-card">
+        <div class="hero-card-content">
+          <p class="hero-hi">Hi.</p>
+          <p class="hero-h2">From surviving motherhood to truly thriving.</p>
+          <p class="hero-p1">I'm Dr Seher, a family medicine doctor with a special interest in lifestyle medicine and women's health.</p>
+          <p class="hero-p2">Having trained as a coach, I help mothers rediscover themselves so they can thrive — not just as mothers, but as the best version of themselves.</p>
+          <p class="hero-cta-label">Ready for your next chapter into motherhood?</p>
+          <a href="#" class="hero-btn">Start Here</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro">
+    <div class="intro-inner">
+      <h2 class="intro-h3">Ready to Become Who You Were<br>Always Meant To Be?</h2>
+      <div class="intro-body">
+        <p>Real transformation doesn't come from trying harder — it comes from seeing yourself differently.<br>
+        When you shift your identity, everything else follows: your energy, your confidence, your habits, your choices.</p>
+        <p>This is the foundation of lasting wellness and personal growth.</p>
+        <p>Let's build the life that fits who you're becoming. Let's embark on the journey together.</p>
+      </div>
+      <p class="intro-label">HERE'S HOW I CAN HELP:</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <!-- 01: Watch & Get Informed -->
+    <div class="service-row">
+      <div class="service-panel">
+        <img src="https://www.figma.com/api/mcp/asset/02c8b585-e8e2-4948-a90f-c40a31fa6b47" alt="Watch and get informed">
+      </div>
+      <div class="service-text-panel">
+        <p class="service-number">01.</p>
+        <p class="service-title">Watch &amp; Get Informed</p>
+        <p class="service-body">Start with my YouTube channel, where I share evidence-based guidance on pregnancy, postpartum recovery, women's health, and motherhood. My videos are designed to help you better understand your body, support your wellbeing, and feel more confident in this season of life. Whether you are preparing for motherhood, navigating the early postpartum period, or trying to find yourself again, this is a supportive place to learn and grow.</p>
+        <a href="#" class="service-btn">WATCH ON YOUTUBE</a>
+      </div>
+    </div>
+
+    <!-- 02: Join the Community -->
+    <div class="service-row">
+      <div class="service-text-panel">
+        <p class="service-number">02.</p>
+        <p class="service-title">Join the community</p>
+        <p class="service-body">Join a community created for mothers who want more than just getting through the day. This is a space for support, encouragement, and practical resources to help you prioritise your health, rediscover yourself, and thrive in motherhood and beyond. You'll have access to week-by-week guidance and resources to support both your baby's development and your own journey as you grow, adapt, and step into motherhood. Through shared learning, honest conversations, and helpful tools, you will feel less alone and more empowered every step of the way.</p>
+        <a href="#" class="service-btn">JOIN THE COMMUNITY</a>
+      </div>
+      <div class="service-panel">
+        <img src="https://www.figma.com/api/mcp/asset/c2bc5699-2acc-48e2-b9da-c254c1e3523d" alt="Join the community">
+      </div>
+    </div>
+
+    <!-- 03: 1-2-1 Coaching -->
+    <div class="service-row">
+      <div class="service-panel">
+        <img src="https://www.figma.com/api/mcp/asset/68bca47c-1f6e-4c69-823a-0e711152a8a1" alt="1-2-1 Coaching">
+      </div>
+      <div class="service-text-panel">
+        <p class="service-number">03.</p>
+        <p class="service-title">1-2-1 Coaching</p>
+        <p class="service-body">My 1-to-1 coaching offers a space to focus on you — your wellbeing, your identity, and the life you want to create alongside motherhood.</p>
+        <a href="#" class="service-btn">JOIN THE COMMUNITY</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section class="expertise">
+    <div class="expertise-header">
+      <h2>Expertise Meets Heart</h2>
+      <p>I support mothers feel like the best version of themselves, thriving in motherhood, not just surviving.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://www.figma.com/api/mcp/asset/6da632bd-54d4-4cac-bf27-6a68f2fce296" alt="">
+        </div>
+        <h3>Clinical Excellence</h3>
+        <p>10+ years of medical experience specialising in family medicine with an interest in women's health and lifestyle medicine.</p>
+        <a href="#" class="card-link">
+          Learn More
+          <img src="https://www.figma.com/api/mcp/asset/dc60ceb5-9ef9-4b9a-98d4-906e0eef2914" alt="">
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://www.figma.com/api/mcp/asset/6f5d30d5-ffc8-463e-9bb5-fd5c862a7906" alt="">
+        </div>
+        <h3>Health Education</h3>
+        <p>Simplifying complex medical research into actionable wellness plans for busy mamas.</p>
+        <a href="#" class="card-link">
+          Learn More
+          <img src="https://www.figma.com/api/mcp/asset/dc60ceb5-9ef9-4b9a-98d4-906e0eef2914" alt="">
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://www.figma.com/api/mcp/asset/4d8b9dc8-6bf9-4c1b-89d0-27cdfb7f567d" alt="">
+        </div>
+        <h3>Community First</h3>
+        <p>Creating safe spaces where mothers can learn, share, and grow without judgment.</p>
+        <a href="#" class="card-link">
+          Learn More
+          <img src="https://www.figma.com/api/mcp/asset/dc60ceb5-9ef9-4b9a-98d4-906e0eef2914" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thriving Mama -->
+  <section class="thriving">
+    <div class="thriving-content">
+      <span class="badge">THRIVING MAMA COMMUNITY</span>
+      <h2>Join the Movement of Empowered Motherhood.</h2>
+      <p class="thriving-desc">Our subscription community offers exclusive access to monthly expert calls, a private library of wellness guides, planners, educational content and a support network that truly understands the journey.</p>
+      <ul class="thriving-list">
+        <li>
+          <img src="https://www.figma.com/api/mcp/asset/70f18fdf-c8a1-435a-bd41-de6a12413266" alt="">
+          Monthly Live Q&amp;A with experts
+        </li>
+        <li>
+          <img src="https://www.figma.com/api/mcp/asset/70f18fdf-c8a1-435a-bd41-de6a12413266" alt="">
+          Private Evidence-Based Wellness Hub
+        </li>
+        <li>
+          <img src="https://www.figma.com/api/mcp/asset/70f18fdf-c8a1-435a-bd41-de6a12413266" alt="">
+          Supportive community of like-minded mothers
+        </li>
+      </ul>
+      <a href="#" class="btn-white">Explore Thriving Mama</a>
+    </div>
+    <div class="thriving-image">
+      <img src="https://www.figma.com/api/mcp/asset/b14d415e-52bf-4f01-afb2-864f0b43198c" alt="Thriving Mama Community">
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat">
+      <p class="stat-value">SUPPORTIVE</p>
+      <p class="stat-label">Community Members</p>
+    </div>
+    <div class="stat">
+      <p class="stat-value">INFORMATIVE</p>
+      <p class="stat-label">Educational Videos</p>
+    </div>
+    <div class="stat">
+      <p class="stat-value">USEFUL</p>
+      <p class="stat-label">Blog Articles</p>
+    </div>
+    <div class="stat">
+      <p class="stat-value">EMPOWERING</p>
+      <p class="stat-label">Live Events Monthly</p>
+    </div>
+  </section>
+
+  <!-- Free Guide -->
+  <section class="guide">
+    <span class="guide-badge">FREE DOWNLOADABLE GUIDE</span>
+    <h2>Get Your Free Wellness Guide</h2>
+    <p>Download my comprehensive guide filled with evidence-based strategies, wellness tips, and practical tools to help you thrive as a mother.</p>
+    <a href="#" class="btn-white-pink">Download Free Guide</a>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Book a free consultation to discuss your health goals and learn how I can support you.</p>
+    <a href="#" class="btn-brown">
+      <img src="https://www.figma.com/api/mcp/asset/34260d18-8dfd-4a74-83ba-cff8ec0ca9c1" alt="">
+      Book Your Free Consultation
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-brand-name">DOCTOR SEHER</p>
+        <p class="footer-brand-text">Empowering mothers through evidence-based health education and a supportive global community.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social">
+            <img src="https://www.figma.com/api/mcp/asset/1e816a80-fbfd-473b-8271-a242bd94a0cb" alt="Instagram">
+          </a>
+          <a href="#" class="footer-social">
+            <img src="https://www.figma.com/api/mcp/asset/6bbbc8e2-0bde-4433-ba21-ac2a903f9bc9" alt="YouTube">
+          </a>
+          <a href="#" class="footer-social">
+            <img src="https://www.figma.com/api/mcp/asset/68cd81a1-ae4e-41bf-829a-a4adc2d47d66" alt="Social">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Work With Me</a></li>
+          <li><a href="#">Thriving Mama</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Resources</p>
+        <ul class="footer-links">
+          <li><a href="#">YouTube Channel</a></li>
+          <li><a href="#">Wellness Blog</a></li>
+          <li><a href="#">Book a Call</a></li>
+          <li><a href="#">Join Community</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Subscribe</p>
+        <p class="footer-subscribe-text">Join the thriving mamas getting weekly evidence-based health and wellness tips.</p>
+        <form class="footer-form" onsubmit="return false;">
+          <input class="footer-input" type="email" placeholder="Email">
+          <button class="footer-submit" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Doctor Seher. All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /.page -->
+</body>
+</html>
