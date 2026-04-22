@@ -61,7 +61,7 @@ nav.top .cta {
 nav.top .cta:hover { background: var(--ink); }
 nav.top .dropdown { position: relative; display: flex; align-items: center; }
 nav.top .dropdown > a {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; gap: 18px;
 }
 nav.top .dropdown > a::after {
   content: "";
@@ -176,9 +176,14 @@ nav.top .dropdown-menu a:focus-visible {
   }
   nav.top .dropdown-menu li { border: none; }
   nav.top .dropdown-menu a {
-    font-size: 14px; color: var(--muted); padding: 8px 0;
+    display: block;
+    font-size: 13px; color: var(--ink);
+    padding: 9px 14px;
+    background: rgba(143,116,98,0.08);
+    border-left: 2px solid var(--cocoa);
+    margin-bottom: 6px;
   }
-  nav.top .dropdown-menu a:hover { background: none; color: var(--cocoa); padding-left: 4px; }
+  nav.top .dropdown-menu a:hover { background: rgba(143,116,98,0.16); color: var(--cocoa); padding-left: 14px; }
   nav.top .dropdown::after { display: none; }
 
 }
