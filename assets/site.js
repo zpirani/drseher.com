@@ -8,7 +8,7 @@
 <nav class="top">
   <div class="inner">
     <a href="${root}index.html" class="mark">DOCTOR SEHER</a>
-    <ul>
+    <ul id="nav-menu">
       <li><a href="${root}index.html" data-p="index">Home</a></li>
       <li><a href="${root}pages/about.html" data-p="about">About Me</a></li>
       <li><a href="${root}pages/work-with-me.html" data-p="work-with-me">Work With Me</a></li>
@@ -23,6 +23,9 @@
       <li><a href="${root}pages/contact.html" data-p="contact">Contact</a></li>
     </ul>
     <a href="${root}pages/booking.html" class="cta">Book Free Consultation</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>`;
 
@@ -84,4 +87,24 @@
   document.querySelectorAll('nav.top a[data-p]').forEach(a => {
     if (a.dataset.p === here) a.classList.add('active');
   });
+
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    // close on link click
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 })();
