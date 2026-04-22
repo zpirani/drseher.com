@@ -97,8 +97,18 @@
       toggle.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    // close on link click
-    menu.querySelectorAll('a').forEach(a => {
+    // mobile: toggle Thriving Mama sub-menu
+    menu.querySelectorAll('.dropdown > a').forEach(a => {
+      a.addEventListener('click', e => {
+        if (window.innerWidth <= 1040) {
+          e.preventDefault();
+          a.closest('.dropdown').classList.toggle('open');
+        }
+      });
+    });
+
+    // close on non-dropdown link click
+    menu.querySelectorAll('a:not(.dropdown > a)').forEach(a => {
       a.addEventListener('click', () => {
         menu.classList.remove('open');
         toggle.classList.remove('open');
