@@ -59,7 +59,7 @@ nav.top .cta {
   transition: background 0.2s;
 }
 nav.top .cta:hover { background: var(--ink); }
-nav.top .dropdown { position: relative; }
+nav.top .dropdown { position: relative; display: flex; align-items: center; }
 nav.top .dropdown > a {
   display: inline-flex; align-items: center; gap: 6px;
 }
