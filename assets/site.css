@@ -47,7 +47,7 @@ nav.top .mark {
   color: var(--ink);
 }
 nav.top > .inner > ul {
-  list-style: none; display: flex; gap: 34px; justify-content: center;
+  list-style: none; display: flex; gap: 34px; justify-content: center; align-items: center;
   font-size: 13px; font-weight: 400; color: var(--ink);
 }
 nav.top ul a { padding: 6px 0; transition: color 0.2s; }
