@@ -135,9 +135,9 @@ nav.top .dropdown-menu a:focus-visible {
 
   nav.top > .inner > ul {
     display: none; flex-direction: column; gap: 0;
-    position: fixed; top: 57px; left: 0; right: 0; bottom: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
+    min-height: calc(100vh - 57px);
     background: rgba(245,240,234,0.98);
-    backdrop-filter: blur(12px);
     padding: 24px 28px 40px;
     overflow-y: auto;
     z-index: 49;
