@@ -61,7 +61,7 @@ nav.top .cta {
 nav.top .cta:hover { background: var(--ink); }
 nav.top .dropdown { position: relative; display: flex; align-items: center; }
 nav.top .dropdown > a {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 10px;
 }
 nav.top .dropdown > a::after {
   content: "";
@@ -152,6 +152,7 @@ nav.top .dropdown-menu a:focus-visible {
   }
 
   /* dropdown on mobile — collapsible */
+  nav.top .dropdown { display: block; }
   nav.top .dropdown > a { pointer-events: auto; }
   nav.top .dropdown > a::after {
     display: inline-block;
