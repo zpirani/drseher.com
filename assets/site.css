@@ -177,7 +177,8 @@ nav.top .dropdown-menu a:focus-visible {
   nav.top .dropdown-menu li { border: none; }
   nav.top .dropdown-menu a {
     display: block;
-    font-size: 13px; color: var(--ink);
+    font-size: 13px; color: #1f1f1f;
+    white-space: normal;
     padding: 9px 14px;
     background: rgba(143,116,98,0.08);
     border-left: 2px solid var(--cocoa);
